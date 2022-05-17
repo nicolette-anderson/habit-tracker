@@ -3,61 +3,210 @@
 @{
     ViewData["Title"] = "Home page";
 }
+
 <style>
     .fieldLabel{
         font-size: x-large;
     }
+    body {
+        font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+        color: #aaccdd;
+        background: #2a2a2a;
+    }
+
+    .container {
+        margin: 60px auto;
+        width: 800px;
+        text-align: center;
+    }
+
+    .container .progress {
+        margin: 0 auto;
+        width: 800px;
+    }
+
+    .progress {
+        padding: 4px;
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .progress-bar {
+        height: 16px;
+        border-radius: 4px;
+        background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+        background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+        -webkit-transition: 0.4s linear;
+        -moz-transition: 0.4s linear;
+        -o-transition: 0.4s linear;
+        transition: 0.4s linear;
+        -webkit-transition-property: width, background-color;
+        -moz-transition-property: width, background-color;
+        -o-transition-property: width, background-color;
+        transition-property: width, background-color;
+        -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    /*
+ * Note: using adjacent or general sibling selectors combined with
+ *       pseudo classes doesn't work in Safari 5.0 and Chrome 12.
+ *       See this article for more info and a potential fix:
+ *       https://css-tricks.com/webkit-sibling-bug/
+ */
+
+    #fuel1:checked ~ .progress > .progress-bar {
+        width: 20%;
+        background-color: #f63a0f;
+    }
+
+    #fuel2:checked ~ .progress > .progress-bar {
+        width: 40%;
+        background-color: #f27011;
+    }
+
+    #fuel3:checked ~ .progress > .progress-bar {
+        width: 60%;
+        background-color: #f2b01e;
+    }
+
+    #fuel4:checked ~ .progress > .progress-bar {
+        width: 80%;
+        background-color: #f2d31b;
+    }
+
+    #fuel5:checked ~ .progress > .progress-bar {
+        width: 100%;
+        background-color: #86e01e;
+    }
+    #water1:checked ~ .progress > .progress-bar {
+        width: 10%;
+        background-color: #d0e5ff;
+    }
+
+    #water2:checked ~ .progress > .progress-bar {
+        width: 20%;
+        background-color: #a8d6f0;
+    }
+
+    #water3:checked ~ .progress > .progress-bar {
+        width: 30%;
+        background-color: #90cded;
+    }
+
+    #water4:checked ~ .progress > .progress-bar {
+        width: 40%;
+        background-color: #00b4ff;
+    }
+
+    #water5:checked ~ .progress > .progress-bar {
+        width: 50%;
+        background-color: #009eff;
+    }
+
+    #water6:checked ~ .progress > .progress-bar {
+        width: 60%;
+        background-color: #0066ff;
+    }
+
+    #water7:checked ~ .progress > .progress-bar {
+        width: 70%;
+        background-color: #004fff;
+    }
+
+    #water8:checked ~ .progress > .progress-bar {
+        width: 80%;
+        background-color: #005b96;
+    }
+
+    #water9:checked ~ .progress > .progress-bar {
+        width: 90%;
+        background-color: #03396c;
+    }
+
+    #water10:checked ~ .progress > .progress-bar {
+        width: 100%;
+        background-color: #011f4b;
+    }
+    .radio {
+        display: none;
+    }
+
+    .label {
+        display: inline-block;
+        margin: 0 5px 20px;
+        padding: 3px 8px;
+        color: #aaa;
+        text-shadow: 0 1px black;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .radio:checked + .label {
+        color: white;
+        background: rgba(0, 0, 0, 0.25);
+    }
 </style>
-<div class="container">
     <div class="row">
-        <fieldset class="form-group border p-3">
-            <legend>Fuelings</legend>
-            <input type="checkbox" name="fuel1" value="1" />
-            <input type="checkbox" name="fuel1" value="2" />
-            <input type="checkbox" name="fuel1" value="3" />
-            <input type="checkbox" name="fuel1" value="4" />
-            <input type="checkbox" name="fuel1" value="5" />
-        </fieldset>
-    </div>
-    <div class="row">
-        <div class="form-group border p-3">
-            <label class="fieldLabel">Lean and Green</label><p/>
-            <input id="lAndG" type="checkbox" />
+        <div class="container">
+            <label class="fieldLabel">Fuelings</label><br/>
+            <input type="radio" class="radio" name="progress" value="1" id="fuel1">
+            <label for="fuel1" class="label">1</label>
+
+            <input type="radio" class="radio" name="progress" value="2" id="fuel2">
+            <label for="fuel2" class="label">2</label>
+
+            <input type="radio" class="radio" name="progress" value="3" id="fuel3">
+            <label for="fuel3" class="label">3</label>
+
+            <input type="radio" class="radio" name="progress" value="4" id="fuel4">
+            <label for="fuel4" class="label">4</label>
+
+            <input type="radio" class="radio" name="progress" value="5" id="fuel5">
+            <label for="fuel5" class="label">5</label>
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <fieldset class="form-group border p-3">
-            <legend>Water</legend>
-            <input type="checkbox" name="water" value="8" />
-            <input type="checkbox" name="water" value="16" />
-            <input type="checkbox" name="water" value="24" />
-            <input type="checkbox" name="water" value="32" />
-            <input type="checkbox" name="water" value="40" />
-            <input type="checkbox" name="water" value="48" />
-            <input type="checkbox" name="water" value="56" />
-            <input type="checkbox" name="water" value="64" />
-            <input type="checkbox" name="water" value="72" />
-            <input type="checkbox" name="water" value="80" />
-        </fieldset>
+        <div class="container">
+        <label class="fieldLabel">Water</label><br/>
+        <input type="radio" class="radio" name="progress" value="8" id="water1">
+        <label for="water1" class="label">8</label>
 
-    </div>
-    <div class="row">
-        <fieldset class="form-group border p-3">
-            <legend>Sleep</legend>
-            <input type="checkbox" name="sleep" value="1"/>
-            <input type="checkbox" name="sleep" value="2"/>
-            <input type="checkbox" name="sleep" value="3"/>
-            <input type="checkbox" name="sleep" value="4"/>
-            <input type="checkbox" name="sleep" value="5"/>
-            <input type="checkbox" name="sleep" value="6"/>
-            <input type="checkbox" name="sleep" value="7"/>
-            <input type="checkbox" name="sleep" value="8"/>
-        </fieldset>
-    </div>
-    <div class="row ">
-        <div class="form-group border p-3">
-            <label class="fieldLabel">Exercise</label><p/>
-            <input id="excCB" type="checkbox" name="exercise" />
+        <input type="radio" class="radio" name="progress" value="16" id="water2">
+        <label for="water2" class="label">16</label>
+
+        <input type="radio" class="radio" name="progress" value="24" id="water3">
+        <label for="water3" class="label">24</label>
+
+        <input type="radio" class="radio" name="progress" value="32" id="water4">
+        <label for="water4" class="label">32</label>
+
+        <input type="radio" class="radio" name="progress" value="40" id="water5">
+        <label for="water5" class="label">40</label>
+
+        <input type="radio" class="radio" name="progress" value="48" id="water6">
+        <label for="water6" class="label">48</label>
+
+        <input type="radio" class="radio" name="progress" value="56" id="water7">
+        <label for="water7" class="label">56</label>
+
+        <input type="radio" class="radio" name="progress" value="64" id="water8">
+        <label for="water8" class="label">64</label>
+
+        <input type="radio" class="radio" name="progress" value="72" id="water9">
+        <label for="water9" class="label">72</label>
+
+        <input type="radio" class="radio" name="progress" value="80" id="water10">
+        <label for="water10" class="label">80</label>
+        <div class="progress">
+            <div class="progress-bar"></div>
         </div>
     </div>
 </div>
