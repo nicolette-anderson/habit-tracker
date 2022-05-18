@@ -7,6 +7,11 @@
 <style>
     .fieldLabel{
         font-size: x-large;
+        color:gainsboro;
+    }
+    .fieldLabel-sm {
+        font-size: large;
+        color: gainsboro;
     }
     body {
         font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
@@ -58,31 +63,85 @@
  *       See this article for more info and a potential fix:
  *       https://css-tricks.com/webkit-sibling-bug/
  */
+    #excMins1:checked ~ .progress > .progress-bar {
+        width: 11%;
+        background-color: #f5d5f8;
+    }
 
+    #excMins2:checked ~ .progress > .progress-bar {
+        width: 22%;
+        background-color: #f5d5f8;
+    }
+
+    #excMins3:checked ~ .progress > .progress-bar {
+        width: 33%;
+        background-color: #f2aee4;
+    }
+
+    #excMins4:checked ~ .progress > .progress-bar {
+        width: 44%;
+        background-color: #f2aee4
+    }
+
+    #excMins5:checked ~ .progress > .progress-bar {
+        width: 55%;
+        background-color: #e57cc2;
+    }
+
+    #excMins6:checked ~ .progress > .progress-bar {
+        width: 66%;
+        background-color: #e57cc2;
+    }
+
+    #excMins7:checked ~ .progress > .progress-bar {
+        width: 77%;
+        background-color: #9b4a76;
+    }
+
+    #excMins8:checked ~ .progress > .progress-bar {
+        width: 88%;
+        background-color: #792754;
+    }
+
+    #excMins9:checked ~ .progress > .progress-bar {
+        width: 100%;
+        background-color: #641842;
+    }
+
+    #excMins10:checked ~ .progress > .progress-bar {
+        width: 100%;
+        background-color: #011f4b;
+    }
     #fuel1:checked ~ .progress > .progress-bar {
-        width: 20%;
-        background-color: #f63a0f;
+        width: 16%;
+        background-color: #ED2938;
     }
 
     #fuel2:checked ~ .progress > .progress-bar {
-        width: 40%;
-        background-color: #f27011;
+        width: 33%;
+        background-color: #FF8C01;
     }
 
     #fuel3:checked ~ .progress > .progress-bar {
-        width: 60%;
-        background-color: #f2b01e;
+        width: 50%;
+        background-color: #FFAA1C;
     }
 
     #fuel4:checked ~ .progress > .progress-bar {
-        width: 80%;
-        background-color: #f2d31b;
+        width: 67%;
+        background-color: #FFE733;
     }
 
     #fuel5:checked ~ .progress > .progress-bar {
-        width: 100%;
-        background-color: #86e01e;
+        width: 83%;
+        background-color: #006B3E;
     }
+
+    #fuel6:checked ~ .progress > .progress-bar {
+        width: 100%;
+        background-color: #024E1B;
+    }
+
     #water1:checked ~ .progress > .progress-bar {
         width: 10%;
         background-color: #d0e5ff;
@@ -125,12 +184,51 @@
 
     #water9:checked ~ .progress > .progress-bar {
         width: 90%;
-        background-color: #03396c;
+        background-color: #c56ab6;
     }
 
     #water10:checked ~ .progress > .progress-bar {
         width: 100%;
         background-color: #011f4b;
+    }
+    #sleep1:checked ~ .progress > .progress-bar {
+        width: 12%;
+        background-color: #9eadcf;
+    }
+
+    #sleep2:checked ~ .progress > .progress-bar {
+        width: 25%;
+        background-color: #7496c1;
+    }
+
+    #sleep3:checked ~ .progress > .progress-bar {
+        width: 37%;
+        background-color: #5754a8;
+    }
+
+    #sleep4:checked ~ .progress > .progress-bar {
+        width: 50%;
+        background-color: #021F4B;
+    }
+
+    #sleep5:checked ~ .progress > .progress-bar {
+        width: 62%;
+        background-color: #4C3B71;
+    }
+
+    #sleep6:checked ~ .progress > .progress-bar {
+        width: 75%;
+        background-color: #54526a;
+    }
+
+    #sleep7:checked ~ .progress > .progress-bar {
+        width: 88%;
+        background-color: #34344d;
+    }
+
+    #sleep8:checked ~ .progress > .progress-bar {
+        width: 100%;
+        background-color: #14140c;
     }
     .radio {
         display: none;
@@ -150,10 +248,40 @@
         color: white;
         background: rgba(0, 0, 0, 0.25);
     }
+    .space-right{
+        margin-right:15px;
+    }
+    .custom-control-input{
+        height: 35px;
+        width: 35px;
+    }
 </style>
+
     <div class="row">
         <div class="container">
-            <label class="fieldLabel">Fuelings</label><br/>
+            <label class="fieldLabel" id="day"></label>
+        </div>
+    </div>
+    <div class="row">
+            <div class="form-inline col-xs-12 justify-content-around" style="width:100%;">
+                <div class="form-group col-xs-4">
+                    <input id="readCB" type="checkbox" class="custom-control-input"/>
+                    <label class="custom-control-label fieldLabel-sm" for="readCB">Read for 10+ minutes</label>
+                </div>
+                <div class="form-group col-xs-4">
+                    <input id="alcoholCB" type="checkbox" class="custom-control-input"/>
+                    <label class="custom-control-label fieldLabel-sm" for="alcoholCB">No alcohol</label>
+                </div>
+                <div class="form-group col-xs-4">
+                    <input id="meditateCB" type="checkbox" class="custom-control-input"/>
+                    <label class="custom-control-label fieldLabel-sm" for="meditateCB">5 minute meditation</label>
+                </div>
+            </div>
+        
+    </div>
+    <div class="row">
+        <div class="container">
+            <label class="fieldLabel">Fuelings</label><br />
             <input type="radio" class="radio" name="progress" value="1" id="fuel1">
             <label for="fuel1" class="label">1</label>
 
@@ -168,6 +296,8 @@
 
             <input type="radio" class="radio" name="progress" value="5" id="fuel5">
             <label for="fuel5" class="label">5</label>
+            <input type="radio" class="radio" name="progress" value="6" id="fuel6">
+            <label for="fuel6" class="label">Lean and Green Meal</label>
             <div class="progress">
                 <div class="progress-bar"></div>
             </div>
@@ -175,38 +305,109 @@
     </div>
     <div class="row">
         <div class="container">
-        <label class="fieldLabel">Water</label><br/>
-        <input type="radio" class="radio" name="progress" value="8" id="water1">
-        <label for="water1" class="label">8</label>
+            <label class="fieldLabel">Water</label><br />
+            <input type="radio" class="radio" name="progress" value="8" id="water1">
+            <label for="water1" class="label">8</label>
 
-        <input type="radio" class="radio" name="progress" value="16" id="water2">
-        <label for="water2" class="label">16</label>
+            <input type="radio" class="radio" name="progress" value="16" id="water2">
+            <label for="water2" class="label">16</label>
 
-        <input type="radio" class="radio" name="progress" value="24" id="water3">
-        <label for="water3" class="label">24</label>
+            <input type="radio" class="radio" name="progress" value="24" id="water3">
+            <label for="water3" class="label">24</label>
 
-        <input type="radio" class="radio" name="progress" value="32" id="water4">
-        <label for="water4" class="label">32</label>
+            <input type="radio" class="radio" name="progress" value="32" id="water4">
+            <label for="water4" class="label">32</label>
 
-        <input type="radio" class="radio" name="progress" value="40" id="water5">
-        <label for="water5" class="label">40</label>
+            <input type="radio" class="radio" name="progress" value="40" id="water5">
+            <label for="water5" class="label">40</label>
 
-        <input type="radio" class="radio" name="progress" value="48" id="water6">
-        <label for="water6" class="label">48</label>
+            <input type="radio" class="radio" name="progress" value="48" id="water6">
+            <label for="water6" class="label">48</label>
 
-        <input type="radio" class="radio" name="progress" value="56" id="water7">
-        <label for="water7" class="label">56</label>
+            <input type="radio" class="radio" name="progress" value="56" id="water7">
+            <label for="water7" class="label">56</label>
 
-        <input type="radio" class="radio" name="progress" value="64" id="water8">
-        <label for="water8" class="label">64</label>
+            <input type="radio" class="radio" name="progress" value="64" id="water8">
+            <label for="water8" class="label">64</label>
 
-        <input type="radio" class="radio" name="progress" value="72" id="water9">
-        <label for="water9" class="label">72</label>
+            <input type="radio" class="radio" name="progress" value="72" id="water9">
+            <label for="water9" class="label">72</label>
 
-        <input type="radio" class="radio" name="progress" value="80" id="water10">
-        <label for="water10" class="label">80</label>
-        <div class="progress">
-            <div class="progress-bar"></div>
+            <input type="radio" class="radio" name="progress" value="80" id="water10">
+            <label for="water10" class="label">80</label>
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <label class="fieldLabel">Sleep</label><br/>
+                <input type="radio" class="radio" name="progress" value="1" id="sleep1">
+                <label for="sleep1" class="label">1</label>
+
+                <input type="radio" class="radio" name="progress" value="2" id="sleep2">
+                <label for="sleep2" class="label">2</label>
+
+                <input type="radio" class="radio" name="progress" value="3" id="sleep3">
+                <label for="sleep3" class="label">3</label>
+
+                <input type="radio" class="radio" name="progress" value="4" id="sleep4">
+                <label for="sleep4" class="label">4</label>
+
+                <input type="radio" class="radio" name="progress" value="5" id="sleep5">
+                <label for="sleep5" class="label">5</label>
+
+                <input type="radio" class="radio" name="progress" value="6" id="sleep6">
+                <label for="sleep6" class="label">6</label>
+
+                <input type="radio" class="radio" name="progress" value="7" id="sleep7">
+                <label for="sleep7" class="label">7</label>
+
+                <input type="radio" class="radio" name="progress" value="8" id="sleep8">
+                <label for="sleep8" class="label">8</label>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <label class="fieldLabel">Exercise</label><br/>
+                <input type="radio" class="radio" name="progress" value="10" id="excMins1">
+                <label for="excMins1" class="label">10</label>
+
+                <input type="radio" class="radio" name="progress" value="20" id="excMins2">
+                <label for="excMins2" class="label">20</label>
+
+                <input type="radio" class="radio" name="progress" value="30" id="excMins3">
+                <label for="excMins3" class="label">30</label>
+
+                <input type="radio" class="radio" name="progress" value="40" id="excMins4">
+                <label for="excMins4" class="label">40</label>
+
+                <input type="radio" class="radio" name="progress" value="50" id="excMins5">
+                <label for="excMins5" class="label">50</label>
+
+                <input type="radio" class="radio" name="progress" value="60" id="excMins6">
+                <label for="excMins6" class="label">60</label>
+
+                <input type="radio" class="radio" name="progress" value="70" id="excMins7">
+                <label for="excMins7" class="label">70</label>
+
+                <input type="radio" class="radio" name="progress" value="80" id="excMins8">
+                <label for="excMins8" class="label">80</label>
+
+                <input type="radio" class="radio" name="progress" value="90" id="excMins9">
+                <label for="excMins9" class="label">90</label>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <script>
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];        
+        const d = new Date();
+        let day = `${weekday[d.getDay()]}, ${d.toLocaleString('default', { month: 'long' })} ${d.getDate()},  ${d.getFullYear()}`;
+            document.getElementById("day").textContent = day;       
+    </script>
